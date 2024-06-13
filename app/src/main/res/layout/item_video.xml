@@ -15,6 +15,7 @@
             android:id="@+id/img_thumb"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:scaleType="fitXY"
             android:src="@mipmap/ic_launcher"
             android:layout_marginBottom="4dp"
             app:layout_constraintBottom_toTopOf="@id/progress_bar"

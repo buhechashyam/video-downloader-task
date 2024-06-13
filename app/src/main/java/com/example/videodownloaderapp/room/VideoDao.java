@@ -1,12 +1,9 @@
-package com.example.videodownloaderapp;
+package com.example.videodownloaderapp.room;
 
 import androidx.room.Dao;
-import androidx.room.Ignore;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-
-import com.example.videodownloaderapp.model.Video;
 
 import java.util.List;
 

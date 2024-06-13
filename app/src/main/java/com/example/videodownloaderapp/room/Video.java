@@ -1,4 +1,4 @@
-package com.example.videodownloaderapp.model;
+package com.example.videodownloaderapp.room;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

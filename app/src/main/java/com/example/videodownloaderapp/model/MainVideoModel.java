@@ -1,5 +1,7 @@
 package com.example.videodownloaderapp.model;
 
+import com.example.videodownloaderapp.room.Video;
+
 public class MainVideoModel {
     Video video;
     boolean isDownloaded = false;

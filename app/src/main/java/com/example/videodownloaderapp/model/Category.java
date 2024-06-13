@@ -1,5 +1,7 @@
 package com.example.videodownloaderapp.model;
 
+import com.example.videodownloaderapp.room.Video;
+
 import java.util.List;
 
 public class Category {

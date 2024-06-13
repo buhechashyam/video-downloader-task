@@ -1,4 +1,4 @@
-package com.example.videodownloaderapp;
+package com.example.videodownloaderapp.room;
 
 import android.content.Context;
 
@@ -6,10 +6,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.videodownloaderapp.model.Video;
-
 @Database(entities = {Video.class}, version = 1 , exportSchema = false)
-abstract class AppDatabase extends RoomDatabase {
+public abstract class AppDatabase extends RoomDatabase {
 
     public abstract VideoDao videoDao();
 

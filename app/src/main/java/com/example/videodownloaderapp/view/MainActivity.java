@@ -1,4 +1,4 @@
-package com.example.videodownloaderapp;
+package com.example.videodownloaderapp.view;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,8 +6,10 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.videodownloaderapp.adapter.VideosAdapter;
 import com.example.videodownloaderapp.databinding.ActivityMainBinding;
-import com.example.videodownloaderapp.model.Video;
+import com.example.videodownloaderapp.room.Video;
+import com.example.videodownloaderapp.room.AppDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

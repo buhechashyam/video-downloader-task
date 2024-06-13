@@ -1,4 +1,4 @@
-package com.example.videodownloaderapp;
+package com.example.videodownloaderapp.view;
 
 import android.app.DownloadManager;
 import android.content.Context;
