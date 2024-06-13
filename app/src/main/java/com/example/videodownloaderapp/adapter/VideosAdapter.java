@@ -35,8 +35,6 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewH
 
     List<Video> mListVideos;
     Context mContext;
-
-    long videoId = 0L;
     boolean isDownload = false;
 
 
@@ -79,15 +77,15 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewH
 
                 if (video.isDownload() == false) {
                     holder.mButtonDownload.setText("Download");
+                    //when downloading that time button is disable
+                    holder.mButtonDownload.setEnabled(false);
                     startDownload(holder, video, position);
+
 
                 } else {
                     holder.mButtonDownload.setText("Play");
                     Intent intent = new Intent(mContext, VideoActivity.class);
-                    intent.putExtra("uri", video.getVideoId());
-                    intent.putExtra("title", video.getTitle());
-                    intent.putExtra("subtitle", video.getSubtitle());
-                    intent.putExtra("desc", video.getDescription());
+                    intent.putExtra("video",video);
                     mContext.startActivity(intent);
                 }
             }
@@ -141,7 +139,7 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewH
 
         long downloadId = downloadManager.enqueue(downloadRequest);
 
-        videoId = downloadId;
+       // videoId = downloadId;
 
         executor.execute(new Runnable() {
             @SuppressLint("Range")
@@ -155,6 +153,7 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewH
 
                     if (cursor != null && cursor.moveToFirst()) {
                         int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
+                        String uri = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
 
                         switch (status) {
                             case DownloadManager.STATUS_FAILED:
@@ -163,6 +162,7 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewH
                             case DownloadManager.STATUS_PAUSED:
                                 break;
                             case DownloadManager.STATUS_RUNNING:
+
                                 final long total = cursor.getLong(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
                                 if (total > 0) {
                                     final long downloaded = cursor.getLong(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
@@ -172,6 +172,7 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewH
                                         @Override
                                         public void run() {
                                             holder.progressBar.setProgress(progress);
+
                                         }
                                     });
                                 }
@@ -184,13 +185,16 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewH
                                     public void run() {
                                         holder.progressBar.setProgress(100);
                                         holder.progressBar.setVisibility(View.GONE);
+
+                                        //enable button
+                                        holder.mButtonDownload.setEnabled(true);
                                         holder.mButtonDownload.setText("Play");
 
                                         // Set video as downloaded
                                         isDownload = true;
-                                        AppDatabase.getDatabaseInstance(mContext).videoDao().updateData(video.getId(), isDownload, videoId);
+                                        AppDatabase.getDatabaseInstance(mContext).videoDao().updateData(video.getId(), isDownload, uri);
                                         video.setDownload(true);
-                                        video.setVideoId(videoId);
+                                        video.setVideoId(uri);
                                         notifyItemChanged(position);
 
                                         Toast.makeText(mContext, "Download complete", Toast.LENGTH_SHORT).show();

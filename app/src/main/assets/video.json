@@ -60,20 +60,11 @@
     {
      "description": "Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when you want to make Buster's big meltdowns even bigger. For $35. Learn how to use Chromecast with Netflix and more at google.com/chromecast.",
      "sources": [
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns"
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
      ],
      "subtitle": "By Google",
      "thumb": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerMeltdowns.jpg",
      "title": "For Bigger Meltdowns"
-    },
-    {
-     "description": "Sintel is an independently produced short film, initiated by the Blender Foundation as a means to further improve and validate the free/open source 3D creation suite Blender. With initial funding provided by 1000s of donations via the internet community, it has again proven to be a viable development model for both open 3Dtechnology as for independent animation film.\n This 15 minute film has been realized in the studio of the Amsterdam Blender Institute, by an international team of artists and developers. In addition to that, several crucial technical and creative targets have been realized online, by developers and artists and teams all over the world.\nwww.sintel.org",
-     "sources": [
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
-     ],
-     "subtitle": "By Blender Foundation",
-     "thumb": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/Sintel.jpg",
-     "title": "Sintel"
     },
     {
      "description": "Smoking Tire takes the all-new Subaru Outback to the highest point we can find in hopes our customer-appreciation Balloon Launch will get some free T-shirts into the hands of our viewers.",

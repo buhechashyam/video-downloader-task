@@ -10,11 +10,11 @@ import java.util.List;
 @Dao
 public interface VideoDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     public void addVideosList(Video video);
 
     @Query("UPDATE videos SET isDownload = :isDownload, videoId= :vidId WHERE id = :id ")
-    public void updateData(int id, boolean isDownload, long vidId);
+    public void updateData(int id, boolean isDownload, String vidId);
 
     @Query("SELECT * FROM videos")
     public List<Video> getAllVideos();

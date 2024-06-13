@@ -3,10 +3,11 @@ package com.example.videodownloaderapp.room;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity(tableName = "videos")
-public class Video {
+public class Video implements Serializable {
     public int getId() {
         return id;
     }
@@ -24,9 +25,9 @@ public class Video {
     private String title;
 
     private boolean isDownload = false;
-    private long videoId = 0L;
+    private String videoId = null;
 
-    public Video(String sources, String thumb, String subtitle, String description, String title, boolean isDownload, long videoId) {
+    public Video(String sources, String thumb, String subtitle, String description, String title, boolean isDownload, String videoId) {
         this.sources = sources;
         this.thumb = thumb;
         this.subtitle = subtitle;
@@ -84,11 +85,11 @@ public class Video {
         isDownload = download;
     }
 
-    public long getVideoId() {
+    public String getVideoId() {
         return videoId;
     }
 
-    public void setVideoId(long videoId) {
+    public void setVideoId(String videoId) {
         this.videoId = videoId;
     }
 }
